@@ -1,0 +1,96 @@
+site_name: Power Automate Training
+site_description: Selbstgeführtes Power Automate Training für Bürokräfte und Power User
+site_url: https://libsman.github.io/powerautomatetraining
+repo_url: https://github.com/libsman/powerautomatetraining
+repo_name: libsman/powerautomatetraining
+docs_dir: docs
+
+theme:
+  name: material
+  language: de
+  palette:
+    - scheme: default
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/brightness-7
+        name: Dunkelmodus aktivieren
+    - scheme: slate
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/brightness-4
+        name: Hellmodus aktivieren
+  features:
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search:
+      lang: de
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - Willkommen: index.md
+  - Trainingsplan: roadmap.md
+  - Lernpfad 1 – Grundlagen:
+    - Modul 0 – Orientierung: modul-0-orientierung.md
+    - Modul 1 – Erster Flow: modul-1-erster-flow.md
+    - Modul 2 – Konditionen: modul-2-konditionen.md
+    - Modul 3 – Schleifen: modul-3-schleifen.md
+    - Modul 4 – Variablen & Expressions: modul-4-variablen-expressions.md
+    - Modul 5 – Aufräumen: modul-5-aufräumen.md
+  - Lernpfad 2 – Microsoft 365 Integrationen:
+    - Modul 6 – Outlook: modul-6-outlook.md
+    - Modul 7 – Teams: modul-7-teams.md
+    - Modul 8 – SharePoint-Listen: modul-8-sharepoint-listen.md
+    - Modul 9 – SharePoint-Dokumente: modul-9-sharepoint-dokumente.md
+    - Modul 10 – OneDrive & Excel: modul-10-onedrive-excel.md
+    - Modul 11 – Scheduled Flows: modul-11-scheduled-flows.md
+    - Modul 12 – Aufräumen: modul-12-aufräumen.md
+  - Lernpfad 3 – Business Flows & Genehmigungen:
+    - Modul 13 – Genehmigungen (Grundlagen): modul-13-approvals.md
+    - Modul 14 – Genehmigungen (Advanced): modul-14-approvals-advanced.md
+    - Modul 15 – Fehlerbehandlung: modul-15-fehlerbehandlung.md
+    - Modul 16 – HTTP Connector: modul-16-http-connector.md
+    - Modul 17 – Szenario IT-Helpdesk: modul-17-szenario-helpdesk.md
+    - Modul 18 – Szenario HR-Onboarding: modul-18-szenario-onboarding.md
+    - Modul 19 – Aufräumen: modul-19-aufräumen.md
+  - Lernpfad 4 – Desktop Flows & RPA:
+    - Modul 20 – Power Automate Desktop: modul-20-pad-einstieg.md
+    - Modul 21 – Web Recorder: modul-21-web-recorder.md
+    - Modul 22 – UI Automation: modul-22-ui-automation.md
+    - Modul 23 – Cloud trifft Desktop: modul-23-cloud-trigger-desktop.md
+    - Modul 24 – Aufräumen: modul-24-aufräumen.md
+  - Lernpfad 5 – Abschlussprojekte:
+    - Modul 25 – Projekt Urlaubsgenehmigung: modul-25-projekt-genehmigung.md
+    - Modul 26 – Projekt Wöchentlicher Report: modul-26-projekt-reporting.md
+    - Modul 27 – Projekt IT-Ticketsystem: modul-27-projekt-ticketsystem.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/libsman/powerautomatetraining
