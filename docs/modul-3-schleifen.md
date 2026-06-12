@@ -74,12 +74,24 @@ Jetzt ist alles innerhalb des `Apply to each`-Blocks wird für jedes Listeneleme
 
 Oft willst du nicht **alle** Elemente einer Liste verarbeiten, sondern nur bestimmte. Dafür gibt es **Filter Array**.
 
-### Beispiel: Nur "Kritisch"-Tickets verarbeiten
+### Vorbereitung: Liste erweitern
 
-1. Füge nach einem Schritt der eine Liste liefert eine neue Aktion hinzu
+Wir bauen auf der SharePoint-Liste aus dem vorherigen Beispiel (`Name`, `Email`) auf. Füge dort eine dritte Spalte hinzu:
+
+1. Öffne die SharePoint-Liste im Browser
+2. Klicke auf **+ Spalte hinzufügen** → **Auswahl**
+3. Spaltenname: `Priorität`
+4. Füge als Auswahlwerte `Kritisch` und `Normal` ein
+5. Aktualisiere deine bestehenden Testeinträge: weise einigen `Kritisch` und anderen `Normal` zu
+
+### Beispiel: Nur "Kritisch"-Einträge verarbeiten
+
+Ergänze den Flow `Schleife-Demo` – füge **zwischen** dem SharePoint-Schritt und dem `Apply to each` einen neuen Schritt ein:
+
+1. Klicke auf das **+** zwischen den beiden Schritten → **Aktion hinzufügen**
 2. Suche nach `Filter Array` (unter "Datenoperationen")
-3. **Von**: Wähle die Liste (z.B. SharePoint-Elemente → **Wert**)
-4. **Bedingung**: 
+3. **Von**: Klicke auf den Blitz → **Wert** (aus dem SharePoint-Schritt „Elemente abrufen")
+4. **Bedingung**:
 
 | Feld | Wert |
 |------|------|
@@ -87,7 +99,9 @@ Oft willst du nicht **alle** Elemente einer Liste verarbeiten, sondern nur besti
 | Operator | `ist gleich` |
 | Rechter Wert | `Kritisch` |
 
-Das Ergebnis ist eine gefilterte Liste die du dann in einem `Apply to each` weiterverarbeitest.
+5. Im `Apply to each`-Schritt darunter: aktualisiere das Eingabefeld **Ausgabe von vorherigen Schritten** auf den Output des **Filter Array**-Schritts (statt direkt den SharePoint-Wert)
+
+Das Ergebnis ist eine gefilterte Liste – der `Apply to each` verarbeitet jetzt nur noch die Einträge mit Priorität `Kritisch`.
 
 ---
 
