@@ -621,10 +621,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#beispiel-nur-kritisch-tickets-verarbeiten" class="md-nav__link">
+  <a href="#vorbereitung-liste-erweitern" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Beispiel: Nur "Kritisch"-Tickets verarbeiten
+        Vorbereitung: Liste erweitern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-nur-kritisch-eintrage-verarbeiten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beispiel: Nur "Kritisch"-Einträge verarbeiten
       
     </span>
   </a>
@@ -1712,10 +1723,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#beispiel-nur-kritisch-tickets-verarbeiten" class="md-nav__link">
+  <a href="#vorbereitung-liste-erweitern" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Beispiel: Nur "Kritisch"-Tickets verarbeiten
+        Vorbereitung: Liste erweitern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-nur-kritisch-eintrage-verarbeiten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beispiel: Nur "Kritisch"-Einträge verarbeiten
       
     </span>
   </a>
@@ -1860,12 +1882,22 @@
 <hr />
 <h2 id="filter-array">Filter Array</h2>
 <p>Oft willst du nicht <strong>alle</strong> Elemente einer Liste verarbeiten, sondern nur bestimmte. Dafür gibt es <strong>Filter Array</strong>.</p>
-<h3 id="beispiel-nur-kritisch-tickets-verarbeiten">Beispiel: Nur "Kritisch"-Tickets verarbeiten</h3>
+<h3 id="vorbereitung-liste-erweitern">Vorbereitung: Liste erweitern</h3>
+<p>Wir bauen auf der SharePoint-Liste aus dem vorherigen Beispiel (<code>Name</code>, <code>Email</code>) auf. Füge dort eine dritte Spalte hinzu:</p>
 <ol>
-<li>Füge nach einem Schritt der eine Liste liefert eine neue Aktion hinzu</li>
+<li>Öffne die SharePoint-Liste im Browser</li>
+<li>Klicke auf <strong>+ Spalte hinzufügen</strong> → <strong>Auswahl</strong></li>
+<li>Spaltenname: <code>Priorität</code></li>
+<li>Füge als Auswahlwerte <code>Kritisch</code> und <code>Normal</code> ein</li>
+<li>Aktualisiere deine bestehenden Testeinträge: weise einigen <code>Kritisch</code> und anderen <code>Normal</code> zu</li>
+</ol>
+<h3 id="beispiel-nur-kritisch-eintrage-verarbeiten">Beispiel: Nur "Kritisch"-Einträge verarbeiten</h3>
+<p>Ergänze den Flow <code>Schleife-Demo</code> – füge <strong>zwischen</strong> dem SharePoint-Schritt und dem <code>Apply to each</code> einen neuen Schritt ein:</p>
+<ol>
+<li>Klicke auf das <strong>+</strong> zwischen den beiden Schritten → <strong>Aktion hinzufügen</strong></li>
 <li>Suche nach <code>Filter Array</code> (unter "Datenoperationen")</li>
-<li><strong>Von</strong>: Wähle die Liste (z.B. SharePoint-Elemente → <strong>Wert</strong>)</li>
-<li><strong>Bedingung</strong>: </li>
+<li><strong>Von</strong>: Klicke auf den Blitz → <strong>Wert</strong> (aus dem SharePoint-Schritt „Elemente abrufen")</li>
+<li><strong>Bedingung</strong>:</li>
 </ol>
 <table>
 <thead>
@@ -1889,7 +1921,10 @@
 </tr>
 </tbody>
 </table>
-<p>Das Ergebnis ist eine gefilterte Liste die du dann in einem <code>Apply to each</code> weiterverarbeitest.</p>
+<ol>
+<li>Im <code>Apply to each</code>-Schritt darunter: aktualisiere das Eingabefeld <strong>Ausgabe von vorherigen Schritten</strong> auf den Output des <strong>Filter Array</strong>-Schritts (statt direkt den SharePoint-Wert)</li>
+</ol>
+<p>Das Ergebnis ist eine gefilterte Liste – der <code>Apply to each</code> verarbeitet jetzt nur noch die Einträge mit Priorität <code>Kritisch</code>.</p>
 <hr />
 <h2 id="select">Select</h2>
 <p><strong>Select</strong> (unter "Datenoperationen") transformiert jedes Element einer Liste in ein neues Format – du wählst nur die Felder die du brauchst.</p>
