@@ -2053,13 +2053,16 @@
 </ul>
 <p>Der Flow soll:
 1. Eine Variable <code>BetreffZeile</code> erstellen vom Typ String
-2. Die Variable auf diesen Wert setzen (mit einer Expression):
-   <code>concat('[', if(equals(triggerInputs()?['text/Priorität'], 'Hoch'), '🔴 HOCH', '🟢 NORMAL'), '] Anfrage von ', triggerInputs()?['text/Name'], ' – ', formatDateTime(utcNow(), 'dd.MM.yyyy'))</code>
+2. Die Variable auf einen Wert setzen der Priorität, Name und Datum kombiniert – nutze <code>concat</code>, <code>if</code>, <code>equals</code> und <code>formatDateTime</code>
 3. Die Variable als Betreff einer Email an dich selbst nutzen</p>
 </div>
 <details class="success">
 <summary>Hinweis</summary>
-<p>Beim Trigger <strong>Manuell einen Flow auslösen</strong> kannst du Eingabefelder definieren. Klicke auf <strong>Eingabe hinzufügen</strong> und wähle <strong>Text</strong>. Im Flow greifst du darauf zu via <code>triggerInputs()?['text/Feldname']</code>.</p>
+<p>Beim Trigger <strong>Manuell einen Flow auslösen</strong> kannst du Eingabefelder definieren. Klicke auf <strong>Eingabe hinzufügen</strong> und wähle <strong>Text</strong>.</p>
+<p>Die Expression hat diese Grundstruktur – ersetze die <code>triggerBody()?['UNBEKANNT']</code>-Stellen durch den <strong>Dynamic Content</strong> des jeweiligen Eingabefelds:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>concat(&#39;[&#39;, if(equals(triggerBody()?[&#39;UNBEKANNT&#39;], &#39;Hoch&#39;), &#39;🔴 HOCH&#39;, &#39;🟢 NORMAL&#39;), &#39;] Anfrage von &#39;, triggerBody()?[&#39;UNBEKANNT&#39;], &#39; – &#39;, formatDateTime(utcNow(), &#39;dd.MM.yyyy&#39;))
+</code></pre></div>
+<p><strong>So ersetzt du <code>UNBEKANNT</code> korrekt</strong>: Die internen Feldnamen vergibt Power Automate automatisch – du kennst sie nicht im Voraus. Tippe die Expression bis zur Stelle wo <code>triggerBody()?['UNBEKANNT']</code> stehen soll, wechsle dann kurz auf den Tab <strong>Dynamischer Inhalt</strong> und wähle dort das gewünschte Feld (<code>Priorität</code> bzw. <code>Name</code>) aus. Power Automate fügt den richtigen Ausdruck automatisch ein.</p>
 </details>
 <hr />
 <p>Weiter zu <a href="../modul-5-aufr%C3%A4umen/">Modul 5 – Aufräumen</a> →</p>
