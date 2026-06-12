@@ -167,12 +167,19 @@ Erweitere den Feedback-Flow aus Modul 1:
     
     Der Flow soll:
     1. Eine Variable `BetreffZeile` erstellen vom Typ String
-    2. Die Variable auf diesen Wert setzen (mit einer Expression):
-       `concat('[', if(equals(triggerInputs()?['text/Priorität'], 'Hoch'), '🔴 HOCH', '🟢 NORMAL'), '] Anfrage von ', triggerInputs()?['text/Name'], ' – ', formatDateTime(utcNow(), 'dd.MM.yyyy'))`
+    2. Die Variable auf einen Wert setzen der Priorität, Name und Datum kombiniert – nutze `concat`, `if`, `equals` und `formatDateTime`
     3. Die Variable als Betreff einer Email an dich selbst nutzen
 
 ??? success "Hinweis"
-    Beim Trigger **Manuell einen Flow auslösen** kannst du Eingabefelder definieren. Klicke auf **Eingabe hinzufügen** und wähle **Text**. Im Flow greifst du darauf zu via `triggerInputs()?['text/Feldname']`.
+    Beim Trigger **Manuell einen Flow auslösen** kannst du Eingabefelder definieren. Klicke auf **Eingabe hinzufügen** und wähle **Text**.
+    
+    Die Expression hat diese Grundstruktur – ersetze die `triggerBody()?['UNBEKANNT']`-Stellen durch den **Dynamic Content** des jeweiligen Eingabefelds:
+    
+    ```
+    concat('[', if(equals(triggerBody()?['UNBEKANNT'], 'Hoch'), '🔴 HOCH', '🟢 NORMAL'), '] Anfrage von ', triggerBody()?['UNBEKANNT'], ' – ', formatDateTime(utcNow(), 'dd.MM.yyyy'))
+    ```
+    
+    **So ersetzt du `UNBEKANNT` korrekt**: Die internen Feldnamen vergibt Power Automate automatisch – du kennst sie nicht im Voraus. Tippe die Expression bis zur Stelle wo `triggerBody()?['UNBEKANNT']` stehen soll, wechsle dann kurz auf den Tab **Dynamischer Inhalt** und wähle dort das gewünschte Feld (`Priorität` bzw. `Name`) aus. Power Automate fügt den richtigen Ausdruck automatisch ein.
 
 ---
 
